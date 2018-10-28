@@ -37,7 +37,7 @@ app.use(_.get('/api/resources/style.css',rescApi.css));
 // Main API
 app.use(_.get('/',mainApi.home));
 
+const PORT = process.env.NODE_ENV == 'production' ? 80: 8000;
 
-
-app.listen(8000);
-console.log("Listening on port 8000");
+app.listen(PORT);
+console.log(`Listening on port ${PORT}`);
