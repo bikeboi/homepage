@@ -1,0 +1,30 @@
+{
+    "name": "homepage",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Michael Kareithi",
+    "license": "MIT",
+    "scripts": {
+        "build-front": "webpack --mode development",
+        "build-server": "babel server/main.js -o out/server.js",
+        "build": "npm run build-server && build-front",
+        "server": "npm run build-server && npm run build-front && node out/server.js"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.1.2",
+        "@babel/core": "^7.1.2",
+        "@babel/preset-env": "^7.1.0",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.4",
+        "react": "^16.6.0",
+        "react-dom": "^16.6.0",
+        "webpack": "^4.23.1",
+        "webpack-cli": "^3.1.2"
+    },
+    "dependencies": {
+        "classnames": "^2.2.6",
+        "koa": "^2.6.1",
+        "koa-route": "^3.2.0",
+        "koa-static": "^5.0.0"
+    }
+}

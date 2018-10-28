@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Niramit|Open+Sans|PT+Sans');
+
+body {
+    background-color: #f0ead6;
+    margin: 0;
+
+    /* Global variables (yum) */
+    --art-color: #7ACCC8;
+    --prog-color: #F0A830;
+    --life-color: #588C7E;
+    --music-color: #E45F56;
+}
+
+/* Main Hamburger Menu */
+#ham-main {
+    position: absolute;
+    right: 2%;
+    padding-top: 10px;
+
+    color: white;
+    font-size: 40px;
+}
+
+/* Panels */
+#panels {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+        "panel-top-left panel-top-right"
+	"panel-bot-left panel-bot-right";
+    height: 100%;
+}
+
+.panel {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+        "inner-panel-top"
+	"inner-panel-bot";
+    
+    color: white;
+    transition: padding 0.5s;
+}
+
+.panel-hovered {
+    padding: 20%;
+    cursor: pointer;
+}
+
+.panel-name {
+    grid-area: inner-panel-top;
+    align-self: center;
+    justify-self: center;
+
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 39px;
+
+    transition: font-size 0.05s;
+}
+
+.panel-name:hover {
+    font-size: 42px;
+}
+
+.panel-content {
+    grid-area: inner-panel-bot;
+    align-self: start;
+    justify-self: center;
+
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.panel-art {
+    background-color: var(--art-color);
+    grid-area: panel-top-left;
+}
+
+.panel-programming {
+    background-color: var(--prog-color);
+    grid-area: panel-top-right;
+}
+
+.panel-life {
+    background-color: var(--life-color);
+    grid-area: panel-bot-left;
+}
+
+.panel-music {
+    background-color: var(--music-color);
+    grid-area: panel-bot-right;
+}
