@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Panel } from './components/cat-panel.js';
+import { Content } from './components/content.js';
+import { Ham } from './components/ham.js';
 
 // Panels
 const artPanel = <Panel name='art' content='Colors and shapes for your eyes...'/>;
@@ -10,10 +12,10 @@ const musicPanel = <Panel name='music' content='Boombaps and 808s for your ears.
 
 const panels =<div id="panels">{artPanel}{progPanel}{lifePanel}{musicPanel}</div>;
 
-// Hamburgler
-const hamMenu = <div id="ham-main">&#9776;</div>;
+// Side Menu
+const infoMenu = <div className="info-menu">Some info</div>;
 
 // Main page
-const content = <div className="content content-main">{hamMenu}{panels}</div>;
+const content = <Content name="main" panels={panels} info={infoMenu} />;
 
 ReactDOM.render(content, document.getElementById('root'));

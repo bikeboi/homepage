@@ -9,7 +9,7 @@
         "build-server": "babel server/main.js -o out/server.js",
         "build": "npm run build-server && build-front",
         "release": "webpack --mode production && npm run build-server && export NODE_ENV=production && node out/server.js",
-        "server": "npm run build-server && npm run build-front && node out/server.js"
+        "dev-server": "npm run build-server && npm run build-front && export NODE_ENV=development && node out/server.js"
     },
     "devDependencies": {
         "@babel/cli": "^7.1.2",
