@@ -18,6 +18,12 @@ const rescApi = {
         ctx.body = css;
         ctx.type = 'style/css';
         ctx.status = 200;
+    },
+    img: (ctx,imgName) => {
+	let img = fs.readFileSync(path.join(__dirname,`www/img/${imgName}`));
+        ctx.body = img;
+        ctx.type = 'image/png';
+        ctx.status = 200;
     }
 }
 
@@ -33,6 +39,7 @@ const mainApi = {
 // Resource API
 app.use(_.get('/api/resources/bundle.js',rescApi.js));
 app.use(_.get('/api/resources/style.css',rescApi.css));
+app.use(_.get('/api/resources/img/:imageName',rescApi.img));
 
 // Main API
 app.use(_.get('/',mainApi.home));

@@ -6,7 +6,12 @@ class InfoMenu extends React.Component {
 	const classes = ClassNames('info-menu', {
 	    'info-menu-shown': this.props.visible
         });
-	return <div className={classes}>Info Menu</div>;
+	return (
+            <div className={classes}>
+              <div className="info-menu-logo">{this.props.logo}</div>
+              <div className="info-menu-info">{this.props.info}</div>
+            </div>
+        );
     }
 }
 
@@ -18,21 +23,27 @@ export class Content extends React.Component {
 
     toggleInfoMenu() {
 	this.setState({ menuShown: !(this.state.menuShown) });
-        this.props.infoMenu.setState({ shown: true });
     }
 
     render() {
-	const classes = ClassNames('content',`content-${this.props.name}`,{
-            'content-main-with-info': this.state.menuShown
-        });
+	const classes = ClassNames('content',`content-${this.props.name}`);
         const hamClasses = ClassNames('ham','ham-main',{
 	    'ham-main-active': this.state.menuShown
         });
+        const panelContainerClasses = ClassNames('main-panels', {
+	    'main-panels-shrunk': this.state.menuShown
+        });
 	return (
             <div className={classes}>
-              {<div className={hamClasses} onClick={(e) => this.toggleInfoMenu(e)}>{'\u2630'}</div>}
+              <div className={panelContainerClasses}>
+		{this.props.panelTL}{this.props.panelTR}
+                {this.props.panelBL}{this.props.panelBR}
+              </div>
               {this.props.panels}
-              {<InfoMenu visible={this.state.menuShown}/>}
+              {<InfoMenu visible={this.state.menuShown}
+			 logo={<img src="api/resources/img/logo.png" />}
+                         info={'Michael Kareithi'}/>}
+              {<div className={hamClasses} onClick={(e) => this.toggleInfoMenu(e)}>{'\u2630'}</div>}
             </div>
         );
     }
