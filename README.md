@@ -1,6 +1,6 @@
 # Homepage
 
-Skidoop on over there: [boop me](bike-boi.com)
+Visit it here: [boop me](http://www.bike-boi.com)
 
 It's still runs on [Koa](https://koajs.com/) for now, but not for long.
 
